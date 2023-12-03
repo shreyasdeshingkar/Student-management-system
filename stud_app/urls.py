@@ -11,7 +11,10 @@ urlpatterns = [
     path('year_log/',views.year_log,name='year_log'),
     path('stud_mgt/',views.stud_mgt,name='stud_mgt'),
 
-    path('dashboard/',views.dashboard,name='dashboard')
+    path('dashboard/',views.dashboard,name='dashboard'),
+
+    path('login/',views.Login,name='login'),
+    path('register/',views.Register,name='register')
 
 
 

@@ -21,3 +21,10 @@ def year_log(request):
  
 def stud_mgt(request):
     return render(request, 'admin dashboard/stud_mgt.html')
+
+def Login(request):
+    return render(request, 'login.html')
+
+def Register(request):
+    return render(request, 'register.html')
+
