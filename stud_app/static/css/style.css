@@ -110,6 +110,7 @@ blockquote:before{
 }
 
 
+
 /* --- Section --- */
 .section {
 	position:relative;
@@ -153,6 +154,7 @@ blockquote:before{
 	background-image: linear-gradient(to bottom, #374050 0%, #798696 100%);
 	opacity: 0.7;
 }
+
 
 /* --- Buttons --- */
 .main-button {
@@ -1331,3 +1333,4 @@ element.style {
 	from { -webkit-transform: rotate(0deg); transform: rotate(0deg);}
 	to { -webkit-transform: rotate(360deg); transform: rotate(360deg);}
 }
+
