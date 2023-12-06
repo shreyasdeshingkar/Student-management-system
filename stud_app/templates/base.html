@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
 		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
 		<title>CSE - {% block title %} {% endblock title %}</title>
@@ -37,18 +38,56 @@
     text-align: center; /* Center the content within the footer */
 }
 </style>
-    </head>
-	<body>
+<style>
+    .center-container {
+        margin: auto;
+        text-align: center; /* You can adjust the width as needed */
+    }
+    </style>
+</head>
+<body>
+    <div class="center-container"  >
+		
+        <div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-03626d7" data-id="03626d7" data-element_type="column">
+            <div class="elementor-column elementor-col-20 elementor-top-column elementor-element elementor-element-03626d7" data-id="03626d7" data-element_type="column">
+			<div class="elementor-widget-wrap elementor-element-populated">
+								<div class="elementor-element elementor-element-70a000d elementor-widget elementor-widget-heading" data-id="70a000d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container"><br><br>
+			<h2 class="elementor-heading-title elementor-size-default" style="font-family: 'Times New Roman', Times, serif;">Dr. BABASAHEB AMBEDKAR TECHNOLOGICAL UNIVERSITY</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-404ae9d elementor-widget elementor-widget-heading" data-id="404ae9d" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">डॉ. बाबासाहेब आंबेडकर तंत्रशास्त्र विद्यापीठ</h2>		</div>
+				</div>
+				<div class="elementor-element elementor-element-c5b2f16 elementor-widget elementor-widget-heading" data-id="c5b2f16" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<p class="elementor-heading-title elementor-size-default">Lonere-402103 Tal- Mangoan, Dist- Raigad, Maharashtra, India.</p>		</div>
+				</div>
+				<div class="elementor-element elementor-element-2175962 elementor-widget elementor-widget-heading" data-id="2175962" data-element_type="widget" data-widget_type="heading.default">
+				<div class="elementor-widget-container">
+			<h2 class="elementor-heading-title elementor-size-default">Department of Computer Engineering</h2>		</div>
+				</div>
+			    </div>
+		</div>
+        </div>
+    </div>
+</body>
+</html>
+
 
 		<!-- Header -->
 		<header id="header" class="transparent-nav">
-			<div class="container">
+			<div class="container" style="margin-right: 15px;">
 
 				<div class="navbar-header">
 					<!-- Logo -->
 					<div class="navbar-brand">
-						<a class="" href="index.html">
-							<h1 style="color: white; "><b>CSE</b> </h1>   
+						<a class="" href="{% url 'homepage' %}">
+							<h1 style="color: white; " ><div class="image-container" style="float: left; margin-left: -200px; margin-top: 50px;">
+								<img src="{% static 'img/DBATU-Logo.png' %}" alt="" width="130px" height="160px">
+
+							</div></h1>  
+
 						</a>
 					</div>
 
@@ -62,14 +101,14 @@
 				</div>
 
 				<!-- Navigation -->
-				<nav id="nav">
+				<nav id="nav" style="font-family: 'Times New Roman', Times, serif;">
 					<ul class="main-menu nav navbar-nav navbar-right navbar-dark bg-dark">
-						<li><a href="{% url 'homepage' %}">Home</a></li>
-						<li><a href="{% url 'about' %}">About</a></li>
-						<li><a href="{% url 'our_department'%}">Our Department</a></li>
+						<li><a href="{% url 'homepage' %}" style="color: black;">Home</a></li>
+						<li><a href="{% url 'about' %}" style="color: black;">About</a></li>
+						<li><a href="{% url 'our_department'%}" style="color: black;">Our Department</a></li>
 						
-						<li><a href="{% url 'contact' %}">Enquiry</a></li>
-						<li><a href="{% url 'login' %}">Admin Login</a></li>
+						<li><a href="{% url 'contact' %}" style="color: black;">Enquiry</a></li>
+						<li><a href="{% url 'login' %}" style="color: black;">Admin Login</a></li>
 						
 					</ul>
 				</nav>
@@ -149,6 +188,9 @@
 		<script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
 		<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+
+
+		
 
 	</body>
 </html>
