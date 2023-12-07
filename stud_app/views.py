@@ -26,6 +26,15 @@ def year_log(request):
 def stud_mgt(request):
     return render(request, 'admin dashboard/stud_mgt.html')
 
+def add_department(request):
+    return render(request, 'admin dashboard/add_department.html')
+
+def add_student(request):
+    return render(request, 'admin dashboard/add_student.html')
+
+def add_year_form(request):
+    return render(request, 'admin dashboard/add_year_form.html')
+
 
 
 

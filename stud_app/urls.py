@@ -15,7 +15,10 @@ urlpatterns = [
 
     path('login/',views.Login,name='login'),
     path('register/',views.Register,name='register'),
-    path('logout/',views.Logout,name='logout')
+    path('logout/',views.Logout,name='logout'),
+    path('add_department/',views.add_department,name = 'add_department'),
+    path('add_student/',views.add_student,name = 'add_student'),
+    path('add_year_form/',views.add_year_form,name = 'add_year_form')
 
 
 
