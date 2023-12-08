@@ -17,8 +17,13 @@ urlpatterns = [
     path('register/',views.Register,name='register'),
     path('logout/',views.Logout,name='logout'),
     path('add_department/',views.add_department,name = 'add_department'),
+    path('add_department/<int:pk>/',views.add_department,name = 'update_department'),
+    path('add_department/delete/<int:pk>/',views.delete_department,name = 'delete_department'),
+
+
+
     path('add_student/',views.add_student,name = 'add_student'),
-    path('add_year_form/',views.add_year_form,name = 'add_year_form')
+    path('add_year_form/',views.add_year_form,name = 'add_year_form'),
 
 
 

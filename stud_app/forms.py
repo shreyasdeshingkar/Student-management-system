@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth.models import User
+from .models import Department,Year,Student
 
 class RegisterForm(UserCreationForm):
     username = forms.CharField(label='Username', widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -16,3 +17,41 @@ class LoginForm(AuthenticationForm):
     
     username = forms.CharField(label='Username', widget=forms.TextInput(attrs={'class': 'form-control'}))
     password = forms.CharField(label='Password', widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+
+class DepartmentForms(forms.ModelForm):
+    name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    class Meta:
+        model = Department
+        fields = '__all__'
+
+class YearForms(forms.ModelForm):
+
+    department = forms.ModelChoiceField(queryset=Department.objects.all(),widget=forms.Select(attrs={'class':'form-control'}))
+    name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+
+    class Meta:
+        model = Year
+        fields = '__all__'
+
+
+GENDERCHOICES = (
+    ('...', '...'),
+    ('male', 'Male'),
+    ('female', 'Female'),
+    ('other', 'Other'),
+        
+)
+class StudentForms(forms.ModelForm):
+    department = forms.ModelChoiceField(queryset=Year.objects.all(),widget=forms.Select(attrs={'class':'form-control'}))
+    year = forms.ModelChoiceField(queryset=Department.objects.all(),widget=forms.Select(attrs={'class':'form-control'}))
+    name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    gender = forms.ChoiceField(choices=GENDERCHOICES,widget=forms.Select(attrs={'class':'form-control'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    phone_number = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control'}))
+    address = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control'}))
+    prn = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control'}))
+
+    class Meta:
+        model = Student
+        fields = ['prn','department','year','name','gender','email','phone_number','address']

@@ -21,104 +21,19 @@
 											<table class="table">
 												<thead>
 													<tr>
-														<th>
-															<div class="form-check">
-																<label class="form-check-label">
-																	<input class="form-check-input  select-all-checkbox" type="checkbox" data-select="checkbox" data-target=".task-select">
-																	<span class="form-check-sign"></span>
-																</label>
-															</div>
-														</th>
-														<th>Task</th>
-														<th>Action</th>
+														
+														<th>Sr.No</th>
+														<th>Year</th>
 													</tr>
 												</thead>
 												<tbody>
+													{% for yd in year_details %}
 													<tr>
-														<td>
-															<div class="form-check">
-																<label class="form-check-label">
-																	<input class="form-check-input task-select" type="checkbox">
-																	<span class="form-check-sign"></span>
-																</label>
-															</div>
-														</td>
-														<td>Planning new project structure</td>
-														<td class="td-actions text-right">
-															<div class="form-button-action">
-																<button type="button" data-toggle="tooltip" title="Edit Task" class="btn btn-link <btn-simple-primary">
-																	<i class="la la-edit"></i>
-																</button>
-																<button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-simple-danger">
-																	<i class="la la-times"></i>
-																</button>
-															</div>
-														</td>
+														<td>{{dd.name}}</td>
+														
+													
 													</tr>
-													<tr>
-														<td>
-															<div class="form-check">
-																<label class="form-check-label">
-																	<input class="form-check-input task-select" type="checkbox">
-																	<span class="form-check-sign"></span>
-																</label>
-															</div>
-														</td>
-														<td>Update Fonts</td>
-														<td class="td-actions text-right">
-															<div class="form-button-action">
-																<button type="button" data-toggle="tooltip" title="Edit Task" class="btn btn-link <btn-simple-primary">
-																	<i class="la la-edit"></i>
-																</button>
-																<button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-simple-danger">
-																	<i class="la la-times"></i>
-																</button>
-															</div>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check">
-																<label class="form-check-label">
-																	<input class="form-check-input task-select" type="checkbox">
-																	<span class="form-check-sign"></span>
-																</label>
-															</div>
-														</td>
-														<td>Add new Post
-														</td>
-														<td class="td-actions text-right">
-															<div class="form-button-action">
-																<button type="button" data-toggle="tooltip" title="Edit Task" class="btn btn-link <btn-simple-primary">
-																	<i class="la la-edit"></i>
-																</button>
-																<button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-simple-danger">
-																	<i class="la la-times"></i>
-																</button>
-															</div>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check">
-																<label class="form-check-label">
-																	<input class="form-check-input task-select" type="checkbox">
-																	<span class="form-check-sign"></span>
-																</label>
-															</div>
-														</td>
-														<td>Finalise the design proposal</td>
-														<td class="td-actions text-right">
-															<div class="form-button-action">
-																<button type="button" data-toggle="tooltip" title="Edit Task" class="btn btn-link <btn-simple-primary">
-																	<i class="la la-edit"></i>
-																</button>
-																<button type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-simple-danger">
-																	<i class="la la-times"></i>
-																</button>
-															</div>
-														</td>
-													</tr>
+													{% endfor %}
 												</tbody>
 											</table>
 										</div>

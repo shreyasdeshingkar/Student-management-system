@@ -1,7 +1,10 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import authenticate,logout,login
 from .forms import RegisterForm,LoginForm
 from django.contrib.auth.decorators import login_required
+from .models import Department,Year,Student
+from .forms import DepartmentForms,YearForms,StudentForms
+
 
 def home(request):
     return render(request, 'index.html')
@@ -18,7 +21,12 @@ def our_department(request):
 
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'admin dashboard/dashboard.html')
+    dpt_details = Department.objects.all()
+
+    context = {
+        'dpt_details':dpt_details
+    }
+    return render(request, 'admin dashboard/dashboard.html',context)
 
 def year_log(request):
      return render(request, 'admin dashboard/year_log.html')
@@ -26,16 +34,83 @@ def year_log(request):
 def stud_mgt(request):
     return render(request, 'admin dashboard/stud_mgt.html')
 
-def add_department(request):
-    return render(request, 'admin dashboard/add_department.html')
+def add_department(request,pk=None):
+    instance = None
+    if pk:
+        instance = get_object_or_404(Department,pk=pk)
 
-def add_student(request):
-    return render(request, 'admin dashboard/add_student.html')
+    if request.method == 'POST':
+        form = DepartmentForms(request.POST,request.FILES,instance=instance)
+        if form.is_valid():
+            form.save()
 
-def add_year_form(request):
-    return render(request, 'admin dashboard/add_year_form.html')
+            return redirect('dashboard')
+    else:
+        form = DepartmentForms(instance=instance)
+
+    context = {
+        'form':form,
+    }    
+        
+    return render(request, 'admin dashboard/add_department.html',context)
+
+def delete_department(request, pk = None):
+    del_dpt = get_object_or_404(Department,pk = pk)
+    del_dpt.delete()
+    return redirect('dashboard')
 
 
+def add_student(request,pk = None):
+    instance = None
+    if pk:
+        instance = get_object_or_404(Student,pk=pk)
+
+    if request.method == 'POST':
+        form = StudentForms(request.POST,request.FILES,instance=instance)
+        if form.is_valid():
+            form.save()
+
+            return redirect('stud_mgt')
+    else:
+        form = StudentForms(instance=instance)
+
+    context = {
+        'form':form,
+    }
+
+    return render(request, 'admin dashboard/add_student.html',context)
+
+def delete_student(request, pk = None):
+    del_stud = get_object_or_404(Student,pk = pk)
+    del_stud.delete()
+    return redirect('stud_mgt')
+
+
+
+def add_year_form(request,pk = None):
+    instance = None
+    if pk:
+        instance = get_object_or_404(Year,pk=pk)
+
+    if request.method == 'POST':
+        form = YearForms(request.POST,request.FILES,instance=instance)
+        if form.is_valid():
+            form.save()
+
+            return redirect('year_log')
+    else:
+        form = YearForms(instance=instance)
+
+    context = {
+        'form':form,
+    }
+
+    return render(request, 'admin dashboard/add_year_form.html',context)
+
+def delete_Year(request, pk = None):
+    del_year = get_object_or_404(Year,pk = pk)
+    del_year.delete()
+    return redirect('year_log')
 
 
 def Register(request):
