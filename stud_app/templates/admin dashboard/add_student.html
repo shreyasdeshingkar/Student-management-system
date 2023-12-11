@@ -9,7 +9,16 @@
     {% csrf_token %}
     {{form.as_p}}
     
-    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 10px; box-sizing: border-box; background-color: #007bff; border: none; border-radius: 5px; color: #fff; cursor: pointer;">Add</button>
+    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 10px; box-sizing: border-box; background-color: #007bff; border: none; border-radius: 5px; color: #fff; cursor: pointer;">
+    {% if form.instance.pk %}
+        Update
+
+    {% else %}
+        Add
+    
+    {% endif %}
+
+    </button>
     
     
 </form>

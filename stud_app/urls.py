@@ -23,7 +23,19 @@ urlpatterns = [
 
 
     path('add_student/',views.add_student,name = 'add_student'),
+    path('add_student/<int:pk>/',views.add_student,name = 'update_student'),
+    path('add_student/delete/<int:pk>/',views.delete_student,name = 'delete_student'),
+
+
     path('add_year_form/',views.add_year_form,name = 'add_year_form'),
+    path('add_year_form/<int:pk>/',views.add_year_form,name = 'update_year'),
+    path('add_year_form/delete/<int:pk>/',views.delete_Year,name = 'delete_year'),
+
+
+    path('contact_log/',views.contact_log,name='contact_log')
+
+
+
 
 
 

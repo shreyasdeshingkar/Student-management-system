@@ -2,15 +2,27 @@ from django.shortcuts import render,redirect,get_object_or_404
 from django.contrib.auth import authenticate,logout,login
 from .forms import RegisterForm,LoginForm
 from django.contrib.auth.decorators import login_required
-from .models import Department,Year,Student
-from .forms import DepartmentForms,YearForms,StudentForms
+from .models import Department,Year,Student,Contact
+from .forms import DepartmentForms,YearForms,StudentForms,ContactForms
 
 
 def home(request):
     return render(request, 'index.html')
 
 def contact(request):
-    return render(request, 'contact.html')
+    if request.method == 'POST':
+        form = ContactForms(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('contact')
+    else:
+        form = ContactForms()
+
+    context = {
+        'form' : form 
+    }
+
+    return render(request, 'contact.html',context)
 
 def about(request):
     return render(request, 'about.html')
@@ -29,10 +41,21 @@ def dashboard(request):
     return render(request, 'admin dashboard/dashboard.html',context)
 
 def year_log(request):
-     return render(request, 'admin dashboard/year_log.html')
+    year_details = Year.objects.all()
+
+    context = {
+        'year_details':year_details
+    }
+
+    return render(request, 'admin dashboard/year_log.html',context)
  
 def stud_mgt(request):
-    return render(request, 'admin dashboard/stud_mgt.html')
+    student_details = Student.objects.all()
+
+    context = {
+        'student_details':student_details
+    }
+    return render(request, 'admin dashboard/stud_mgt.html',context)
 
 def add_department(request,pk=None):
     instance = None
@@ -142,4 +165,15 @@ def Login(request):
 def Logout(request):
     logout(request)
     return redirect('homepage')
+
+
+
+def contact_log(request):
+    contact_details = Contact.objects.all()
+
+    context = {
+        'contact_details':contact_details
+    }
+    return render(request, 'admin dashboard/contact_log.html',context)
+
 

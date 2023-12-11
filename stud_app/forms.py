@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm,AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Department,Year,Student
+from .models import Department,Year,Student,Contact
 
 class RegisterForm(UserCreationForm):
     username = forms.CharField(label='Username', widget=forms.TextInput(attrs={'class': 'form-control'}))
@@ -43,8 +43,8 @@ GENDERCHOICES = (
         
 )
 class StudentForms(forms.ModelForm):
-    department = forms.ModelChoiceField(queryset=Year.objects.all(),widget=forms.Select(attrs={'class':'form-control'}))
-    year = forms.ModelChoiceField(queryset=Department.objects.all(),widget=forms.Select(attrs={'class':'form-control'}))
+    department = forms.ModelChoiceField(queryset=Department.objects.all(),widget=forms.Select(attrs={'class':'form-control'}))
+    year = forms.ModelChoiceField(queryset=Year.objects.all(),widget=forms.Select(attrs={'class':'form-control'}))
     name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
     gender = forms.ChoiceField(choices=GENDERCHOICES,widget=forms.Select(attrs={'class':'form-control'}))
     email = forms.EmailField(widget=forms.TextInput(attrs={'class':'form-control'}))
@@ -55,3 +55,14 @@ class StudentForms(forms.ModelForm):
     class Meta:
         model = Student
         fields = ['prn','department','year','name','gender','email','phone_number','address']
+
+
+class ContactForms(forms.ModelForm):
+    name = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={'class':'form-control'}))
+    phone_number = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control'}))
+    message = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control'}))
+
+    class Meta:
+        model = Contact
+        fields = ['name','email','phone_number','message']
