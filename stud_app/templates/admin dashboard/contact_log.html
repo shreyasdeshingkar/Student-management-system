@@ -27,6 +27,7 @@
                                             <th>Email</th>
                                             <th>Phone number</th>
                                             <th>Message</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -38,6 +39,12 @@
                                             <td>{{cd.phone_number}}</td>
                                             <td>{{cd.message}}</td>
                                             
+                                            
+											<td>
+												<a href="{% url 'delete_contact' cd.id %}"><button  type="button" data-toggle="tooltip" title="Remove" class="btn btn-link btn-simple-danger">
+												<i class="la la-times"></i>
+											</button></a>
+											</td>
                                         
 
                                         </tr>

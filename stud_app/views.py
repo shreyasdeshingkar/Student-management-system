@@ -10,6 +10,7 @@ def home(request):
     return render(request, 'index.html')
 
 def contact(request):
+    
     if request.method == 'POST':
         form = ContactForms(request.POST)
         if form.is_valid():
@@ -23,6 +24,14 @@ def contact(request):
     }
 
     return render(request, 'contact.html',context)
+
+def delete_contact(request,pk = None):
+    contact_del_details = get_object_or_404(Contact,pk = pk)
+    contact_del_details.delete()
+    return redirect('contact_log')
+
+
+
 
 def about(request):
     return render(request, 'about.html')
@@ -201,5 +210,7 @@ def students_profile(request,pk = None):
 
     }
     return render(request, 'students_profile.html',context)
+
+
 
 
