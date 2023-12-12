@@ -32,6 +32,13 @@ urlpatterns = [
     path('add_year_form/delete/<int:pk>/',views.delete_Year,name = 'delete_year'),
 
 
+
+
+    path('our_students/<int:pk>/',views.our_students,name='our_students'),
+    path('student/<int:pk>/',views.students_profile,name='students_profile'),
+
+
+
     path('contact_log/',views.contact_log,name='contact_log')
 
 

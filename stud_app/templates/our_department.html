@@ -28,22 +28,18 @@
 <!-- /container -->
 
 </div>
+<br><br>
 
+<div class="button-container" style="margin-left: 100px; margin-bottom: 100px; white-space: nowrap;">
+    {% for yd in year_details %}
+        <a href="{% url 'our_students' yd.id %}"><button type="button"  class="btn btn-primary btn-lg" style="background-color: rgba(3, 21, 87, 0.844); border-radius: 10px; margin-right: 10px;" >{{yd.name}}</button></a>
 
-<div class="button-container" style="margin-top: 100px; margin-left: 100px;">
-    <button type="button" class="btn btn-primary btn-lg" style="background-color: rgba(3, 21, 87, 0.844);">Large button</button>
-    
-
+        {% endfor %}
 </div>
 
 
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
-</div>
+
+
 
 
 

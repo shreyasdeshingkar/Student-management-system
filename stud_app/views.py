@@ -29,7 +29,12 @@ def about(request):
 
 
 def our_department(request):
-    return render(request, 'our_department.html')
+    year_details = Year.objects.all()
+
+    context = {
+        'year_details' : year_details
+    }
+    return render(request, 'our_department.html',context)
 
 @login_required(login_url='login')
 def dashboard(request):
@@ -175,5 +180,26 @@ def contact_log(request):
         'contact_details':contact_details
     }
     return render(request, 'admin dashboard/contact_log.html',context)
+
+
+
+def our_students(request,pk = None):
+    year_details = Year.objects.get(pk = pk)
+    students = Student.objects.filter(year = year_details)
+
+    context = {
+        'year_details':year_details,
+        'students':students
+    }
+    return render(request, 'our_students.html',context)
+
+def students_profile(request,pk = None):
+    student_details = get_object_or_404(Student,pk = pk)
+
+    context = {
+        'student':student_details,
+
+    }
+    return render(request, 'students_profile.html',context)
 
 

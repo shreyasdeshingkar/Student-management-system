@@ -4,7 +4,7 @@
 {% block main-content %}
 
 <br><br><br><br>
-<form method="POST" style="width: 40%; margin: 0 auto; text-align: left; padding: 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+<form method="POST" enctype="multipart/form-data" style="width: 40%; margin: 0 auto; text-align: left; padding: 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
     
     {% csrf_token %}
     {{form.as_p}}
