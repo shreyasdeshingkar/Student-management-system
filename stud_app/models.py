@@ -31,7 +31,7 @@ class Student(models.Model):
     phone_number = models.CharField(max_length=10) 
     address = models.TextField(null=True)
     prn = models.CharField(max_length=20, null=True)
-    image = models.FileField(upload_to='stud_app/images',null=True)
+    image = models.ImageField(upload_to='stud_app/images',null=True)
 
 
 

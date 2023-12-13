@@ -51,7 +51,7 @@ class StudentForms(forms.ModelForm):
     phone_number = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control'}))
     address = forms.CharField(widget=forms.Textarea(attrs={'class':'form-control'}))
     prn = forms.CharField(widget=forms.NumberInput(attrs={'class':'form-control'}))
-    image = forms.FileField(widget=forms.FileInput(attrs={'class':'form-control'}))
+    image = forms.FileField(widget=forms.FileInput(attrs={'class':'form-control'}),required=False)
 
     class Meta:
         model = Student
