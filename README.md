@@ -1,62 +1,57 @@
-💎 Diamond Price Prediction (Regression ML Model)
+🎓 Student Management System (Web Application)
 
-A machine learning web application that predicts the price of a diamond based on various physical attributes.
+A full-stack application for managing student profiles, attendance, records, and academic information.
 
 💡 Problem Statement
 
-Estimating diamond prices manually is subjective and inconsistent.
-This ML-powered system predicts prices based on historical data patterns.
+Maintaining student academic records manually is inefficient and prone to errors.
+This system automates record handling and improves accessibility.
 
 📂 Dataset
 
-Dataset Source: Kaggle
-(Add link if available)
+No external dataset — manually entered student records stored in DB.
 
 🧠 Domain
 
-📍 E-Commerce | Pricing Analytics | Machine Learning
+📍 Education | Full-Stack Development | Data Management
 
 🎯 Objective
 
-To build a regression model capable of predicting diamond prices using features like:
+To allow seamless:
 
-Carat
+CRUD operations on student data
 
-Cut
+Attendance and academic tracking
 
-Clarity
-
-Color
-
-Physical dimensions
+Reporting and query management
 
 🔗 Application Link
 
-(Add link if deployed — Heroku/Render/AWS)
+(Add URL if deployed)
 
 🧰 Tech Stack & Libraries
 Category	Tools
-Programming Language	Python
-ML Libraries	scikit-learn, NumPy, Pandas
-Deployment	Flask
-Model Handling	Pickle
-🛢 Database
+Backend	Python, Django, Flask
+Frontend	Bootstrap
+Database	MySQL
+API Structure	REST APIs
+🛢 Database Used
 
-(Optional: If no DB used, write "Not Applicable")
+MySQL
 
 ☁ Deployment Platform
 
-(Heroku, AWS, Local Server — update accordingly)
+(Local/Test Deployment — update if hosted)
 
 🏗 Application Overview
 
-Built multiple regression models
+Built REST APIs for data communication
 
-Performed EDA, encoding, scaling, and feature engineering
+Integrated MySQL with ORM
 
-Achieved 92% accuracy
+Implemented responsive Bootstrap UI
 
-Integrated model with Flask UI for real-time predictions
+Ensured secure and scalable data handling
 
 👨‍💻 Author
 
