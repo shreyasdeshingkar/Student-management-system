@@ -27,17 +27,13 @@ To build a scalable student data management web application that allows:
 
 # 🔗 Application Link
 
-🌐 Live Demo Web App:
-
-(Add link once deployed to Heroku / Render / Railway / Vercel)
-Example placeholder: https://student-management-system.demo.app
 
 🎥 Descriptive Demo Video
 
-# 📽 Watch Full Demo Here:
 
-(Add Google Drive / YouTube Link)
-Example placeholder: https://youtu.be/demo-student-management-video
+https://github.com/user-attachments/assets/82177443-fe03-445b-894e-2280699b37f9
+
+
 
 # 📂 Dataset / Inputs
 
