@@ -27,6 +27,7 @@ To build a scalable student data management web application that allows:
 
 # 🔗 Application Link
 
+https://student-management-system-q866.onrender.com
 
 🎥 Descriptive Demo Video
 
