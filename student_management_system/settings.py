@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIRS = os.path.join(BASE_DIR, 'templates')
@@ -26,6 +27,7 @@ SECRET_KEY = 'django-insecure-wvj7_ijgv76i1jdw#$7xk*+i0_j+e6l1g-(+!6evsfd@#(4q8o
 DEBUG = True
 
 ALLOWED_HOSTS = []
+ALLOWED_HOSTS += ['localhost', '127.0.0.1', '.onrender.com']  # ADDED
 
 
 # Application definition
@@ -76,14 +78,21 @@ WSGI_APPLICATION = 'student_management_system.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE':'django.db.backends.mysql',
-        'NAME':'stud_db',
-        'USER':'root',
-        'PASSWORD':'Shreyas@123',
-        'HOST':'localhost',
-        'PORT':'3306',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'stud_db',
+        'USER': 'root',
+        'PASSWORD': 'Shreyas@123',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
+
+# Use SQLite on Render, keep MySQL locally  # ADDED
+if os.environ.get("RENDER"):  # ADDED
+    DATABASES['default'] = {  # ADDED
+        'ENGINE': 'django.db.backends.sqlite3',  # ADDED
+        'NAME': BASE_DIR / 'db.sqlite3',        # ADDED
+    }                                           # ADDED
 
 
 # Password validation
@@ -123,9 +132,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-   os.path.join(BASE_DIR, 'stud_app/static')
+    os.path.join(BASE_DIR, 'stud_app/static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
