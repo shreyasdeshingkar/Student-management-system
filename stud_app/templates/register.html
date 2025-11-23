@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block title  %} Register {% endblock title  %}
+{% block main-content %}
+<br>
+<br>
+<br>
+
+
+
+
+<form method="POST" style="width: 40%; margin: 0 auto; text-align: left; padding: 20px; border: 1px solid #ccc; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
+    {% csrf_token %}
+    {{form.as_p}}
+    
+    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 10px; box-sizing: border-box; background-color: #007bff; border: none; border-radius: 5px; color: #fff; cursor: pointer;">Register</button>
+    
+    <p style="margin-top: 15px; text-align: center;">Already have an account? <a href="{% url 'login'%}" style="color: #007bff; text-decoration: none;">Login here</a></p>
+</form>
+
+<br><br><br><br><br><br>
+
+
+
+
+
+
+  {% endblock main-content %}

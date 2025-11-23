@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block title  %} Our Students {% endblock title  %}
+{% block main-content %}
+<div id="why-us" class="section">
+    
+    <div class="bg-image bg-parallax overlay" >
+        <img src="{% static 'img/about.jpg' %}" width = "100%" height="100%"  alt="CTA Background">
+
+    </div>
+    <!-- /Backgound Image -->
+
+    <!-- container -->
+    <div class="container">
+
+        <!-- row -->
+        <div class="row">
+
+            <div class="col-md-6">
+                <h2 class="white-text"> Our Students</h2>
+                
+            </div>
+
+        </div>
+        <!-- /row -->
+
+    </div>
+    <!-- /container -->
+
+</div>
+
+<div class="main-panel" >
+    <div class="content" >
+        <div class="container-fluid" style="height: 1000px;">
+            
+            <div class="row">
+            </div>
+            <div class="row">
+                <div class="col-md-12" >
+                    <div class="card card-tasks">
+                        <div class="card-header " >
+                            
+                            
+                            
+                        </div>
+                        <div class="card-body " >
+                            <div class="table-full-width" >
+                                <table class="table" >
+                                    <thead>
+                                        <tr>
+											
+											<th>Sr.No</th>
+                                            <th>Profile</th>
+											<th>PRN</th>
+											<th>Department</th>
+											<th>Year</th>
+											<th>Name</th>
+											<th>Gender</th>
+											<th>Email</th>
+											<th>Phone.No</th>
+											<th>Address</th>
+											
+										</tr>
+									</thead>
+									<tbody>
+										{% for sd in students %}
+										<tr>
+											<td>{{forloop.counter}}</td>
+                                            <td> <a href="{% url 'students_profile' sd.id %}"><img src="{% static 'img/Profile.png'%}" width="40px" height="40px" alt=""></a></td>
+											
+											<td>{{sd.prn}}</td>
+											<td>{{sd.department}}</td>
+											<td>{{sd.year}}</td>
+											<td>{{sd.name}}</td>
+											<td>{{sd.gender}}</td>
+											<td>{{sd.email}}</td>
+											<td>{{sd.phone_number}}</td>
+											<td>{{sd.address}}</td>
+											
+											
+											
+										</tr>
+										{% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock main-content %}

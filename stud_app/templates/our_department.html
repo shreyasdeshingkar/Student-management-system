@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static  %}
+{% block title  %} Our Department {% endblock title  %}
+{% block main-content %}
+
+<div id="our-department" class="section">
+<div class="bg-image bg-parallax overlay" >
+    <img src="{% static 'img/about.jpg' %}" width = "100%" height="100%"  alt="CTA Background">
+
+</div>
+<!-- /Backgound Image -->
+
+<!-- container -->
+<div class="container">
+
+    <!-- row -->
+    <div class="row">
+
+        <div class="col-md-6">
+            <h2 class="white-text">Our Department</h2>
+            
+        </div>
+
+    </div>
+    <!-- /row -->
+
+</div>
+<!-- /container -->
+
+</div>
+<br><br>
+
+<div class="button-container" style="margin-left: 100px; margin-bottom: 100px; white-space: nowrap;">
+    {% for yd in year_details %}
+        <a href="{% url 'our_students' yd.id %}"><button type="button"  class="btn btn-primary btn-lg" style="background-color: rgba(3, 21, 87, 0.844); border-radius: 10px; margin-right: 10px;" >{{yd.name}}</button></a>
+
+        {% endfor %}
+</div>
+
+
+
+
+
+
+
+</div>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+
+{% endblock main-content %}
